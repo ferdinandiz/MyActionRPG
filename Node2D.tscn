@@ -8,15 +8,15 @@ extents = Vector2( 36, 45 )
 
 [node name="Node2D" type="Node2D"]
 
-[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+[node name="Machine" type="KinematicBody2D" parent="."]
 position = Vector2( 416, 270 )
+z_index = 2
 script = ExtResource( 2 )
 
-[node name="Sprite" type="Sprite" parent="KinematicBody2D"]
-rotation = 3.14159
+[node name="Sprite" type="Sprite" parent="Machine"]
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 1 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Machine"]
 position = Vector2( 1, 2 )
 shape = SubResource( 1 )
