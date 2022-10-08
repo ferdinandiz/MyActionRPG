@@ -23,7 +23,7 @@ extents = Vector2( 1035.5, 10 )
 [node name="Node2D" type="Node2D"]
 
 [node name="Machine" type="KinematicBody2D" parent="."]
-position = Vector2( 416, 270 )
+position = Vector2( 411, 270 )
 z_index = 2
 collision_mask = 22
 script = ExtResource( 2 )
@@ -43,26 +43,44 @@ position = Vector2( -7, -32 )
 [node name="Canhao 2" type="Position2D" parent="Machine"]
 position = Vector2( 7, -32 )
 
-[node name="Limite" type="Area2D" parent="."]
-collision_layer = 2
+[node name="Limites" type="Node2D" parent="."]
 script = ExtResource( 4 )
 
-[node name="esquerda" type="CollisionShape2D" parent="Limite"]
+[node name="LimiteEsquerda" type="Area2D" parent="Limites"]
+collision_layer = 2
+collision_mask = 17
+
+[node name="esquerda" type="CollisionShape2D" parent="Limites/LimiteEsquerda"]
 self_modulate = Color( 0, 0.227451, 0.662745, 1 )
-position = Vector2( 39.5, 505.5 )
+position = Vector2( -48.5, 505.5 )
 shape = SubResource( 2 )
 
-[node name="direita" type="CollisionShape2D" parent="Limite"]
+[node name="LimiteDireita" type="Area2D" parent="Limites"]
+collision_layer = 2
+collision_mask = 17
+
+[node name="direita" type="CollisionShape2D" parent="Limites/LimiteDireita"]
 self_modulate = Color( 0, 0.227451, 0.662745, 1 )
-position = Vector2( 2027, 493 )
+position = Vector2( 2100, 493 )
 shape = SubResource( 3 )
 
-[node name="cima" type="CollisionShape2D" parent="Limite"]
-position = Vector2( 1025.5, 0 )
+[node name="LimiteCima" type="Area2D" parent="Limites"]
+collision_layer = 2
+collision_mask = 17
+
+[node name="cima" type="CollisionShape2D" parent="Limites/LimiteCima"]
+position = Vector2( 1025.5, -10 )
 shape = SubResource( 4 )
 
-[node name="baixo" type="CollisionShape2D" parent="Limite"]
-position = Vector2( 1022, 1012 )
+[node name="LimiteBaixo" type="Area2D" parent="Limites"]
+collision_layer = 2
+collision_mask = 17
+
+[node name="baixo" type="CollisionShape2D" parent="Limites/LimiteBaixo"]
+position = Vector2( 1036, 1038 )
 shape = SubResource( 5 )
 
-[connection signal="body_entered" from="Limite" to="Limite" method="_on_Limite_body_entered"]
+[connection signal="body_entered" from="Limites/LimiteEsquerda" to="Limites" method="_on_LimiteEsquerda_body_entered"]
+[connection signal="body_entered" from="Limites/LimiteDireita" to="Limites" method="_on_LimiteDireita_body_entered"]
+[connection signal="body_entered" from="Limites/LimiteCima" to="Limites" method="_on_LimiteCima_body_entered"]
+[connection signal="body_entered" from="Limites/LimiteBaixo" to="Limites" method="_on_LimiteBaixo_body_entered"]

@@ -3,9 +3,10 @@ var velocidade = Vector2.ZERO
 export (PackedScene) var Projetil
 
 func _physics_process(delta):
+	print($".".position)
 	velocidade.x = Input.get_action_strength("direita") - Input.get_action_strength("esquerda")
 	velocidade.y = Input.get_action_strength("baixo") - Input.get_action_strength("cima")
-	move_and_slide(velocidade*100)
+	move_and_slide(velocidade*500)
 	trocaSprite(velocidade)
 	if Input.is_action_just_pressed("shoot"):
 		shoot()
