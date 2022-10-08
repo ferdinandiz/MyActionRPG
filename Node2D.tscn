@@ -38,10 +38,10 @@ position = Vector2( 1, 2 )
 shape = SubResource( 1 )
 
 [node name="Canhao 1" type="Position2D" parent="Machine"]
-position = Vector2( -7, -32 )
+position = Vector2( -7, -61 )
 
 [node name="Canhao 2" type="Position2D" parent="Machine"]
-position = Vector2( 7, -32 )
+position = Vector2( 7, -61 )
 
 [node name="Limites" type="Node2D" parent="."]
 script = ExtResource( 4 )
@@ -80,6 +80,7 @@ collision_mask = 17
 position = Vector2( 1036, 1038 )
 shape = SubResource( 5 )
 
+[connection signal="area_entered" from="Limites/LimiteEsquerda" to="Limites" method="_on_LimiteEsquerda_area_entered"]
 [connection signal="body_entered" from="Limites/LimiteEsquerda" to="Limites" method="_on_LimiteEsquerda_body_entered"]
 [connection signal="body_entered" from="Limites/LimiteDireita" to="Limites" method="_on_LimiteDireita_body_entered"]
 [connection signal="body_entered" from="Limites/LimiteCima" to="Limites" method="_on_LimiteCima_body_entered"]

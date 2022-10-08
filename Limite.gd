@@ -22,3 +22,8 @@ func _on_LimiteCima_body_entered(body):
 func _on_LimiteBaixo_body_entered(body):
 	body.position.y = 70
 	pass # Replace with function body.
+
+
+func _on_LimiteEsquerda_area_entered(area):
+	area.position.x = $LimiteDireita/direita.position.x-110
+	pass # Replace with function body.

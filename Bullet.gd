@@ -10,6 +10,12 @@ func _physics_process(delta):
 	position -= transform.y * velocidade *delta
 
 func _on_Bullet_body_entered(body):
-	if(body.is_in_group("alvo")):
-		body.queue_free()
-		pass 
+	
+	body.queue_free()
+	$".".queue_free()
+	pass 
+
+
+func _on_Timer_timeout():
+	$".".queue_free()
+	pass # Replace with function body.
