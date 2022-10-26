@@ -1,9 +1,14 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://peresona_01.png" type="Texture" id=1]
 [ext_resource path="res://KinematicBody2D.gd" type="Script" id=2]
 [ext_resource path="res://Bullet.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Limite.gd" type="Script" id=4]
+[ext_resource path="res://laserShoot.wav" type="AudioStream" id=5]
+[ext_resource path="res://moveTanque.wav" type="AudioStream" id=6]
+[ext_resource path="res://Player.gd" type="Script" id=7]
+[ext_resource path="res://Linkin Park - Bleed It Out.mp3" type="AudioStream" id=8]
+[ext_resource path="res://Barril.tscn" type="PackedScene" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 36, 45 )
@@ -43,6 +48,12 @@ position = Vector2( -7, -61 )
 [node name="Canhao 2" type="Position2D" parent="Machine"]
 position = Vector2( 7, -61 )
 
+[node name="Tiro" type="AudioStreamPlayer" parent="Machine"]
+stream = ExtResource( 5 )
+
+[node name="MoveTanque" type="AudioStreamPlayer" parent="Machine"]
+stream = ExtResource( 6 )
+
 [node name="Limites" type="Node2D" parent="."]
 script = ExtResource( 4 )
 
@@ -79,6 +90,26 @@ collision_mask = 17
 [node name="baixo" type="CollisionShape2D" parent="Limites/LimiteBaixo"]
 position = Vector2( 1036, 1038 )
 shape = SubResource( 5 )
+
+[node name="Player" type="Node2D" parent="."]
+script = ExtResource( 7 )
+
+[node name="LinkinPark" type="AudioStreamPlayer" parent="Player"]
+stream = ExtResource( 8 )
+
+[node name="Objetos" type="Node2D" parent="."]
+
+[node name="Barril" parent="Objetos" instance=ExtResource( 9 )]
+position = Vector2( 213, 47 )
+
+[node name="Barril2" parent="Objetos" instance=ExtResource( 9 )]
+position = Vector2( 932, 245 )
+
+[node name="Barril3" parent="Objetos" instance=ExtResource( 9 )]
+position = Vector2( 1185, 288 )
+
+[node name="Barril4" parent="Objetos" instance=ExtResource( 9 )]
+position = Vector2( 1174, 592 )
 
 [connection signal="area_entered" from="Limites/LimiteEsquerda" to="Limites" method="_on_LimiteEsquerda_area_entered"]
 [connection signal="body_entered" from="Limites/LimiteEsquerda" to="Limites" method="_on_LimiteEsquerda_body_entered"]

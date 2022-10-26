@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Linkin Park - Bleed It Out.mp3-77d27fcc27d6958701833d2f17f347cb.mp3str"
+
+[deps]
+
+source_file="res://Linkin Park - Bleed It Out.mp3"
+dest_files=[ "res://.import/Linkin Park - Bleed It Out.mp3-77d27fcc27d6958701833d2f17f347cb.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

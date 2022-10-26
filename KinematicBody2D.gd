@@ -6,6 +6,14 @@ func _physics_process(delta):
 	print($".".position)
 	velocidade.x = Input.get_action_strength("direita") - Input.get_action_strength("esquerda")
 	velocidade.y = Input.get_action_strength("baixo") - Input.get_action_strength("cima")
+	
+	if velocidade.x !=0 or velocidade.y !=0:
+		if !$MoveTanque.playing:
+			$MoveTanque.play()
+	else:
+		if $MoveTanque.playing:
+			$MoveTanque.stop()
+	
 	move_and_slide(velocidade*500)
 	trocaSprite(velocidade)
 	if Input.is_action_just_pressed("shoot"):
@@ -13,6 +21,7 @@ func _physics_process(delta):
 	pass
 
 func shoot():
+	$Tiro.play()
 	var canhaoA = Projetil.instance()
 	var canhaoB = Projetil.instance()
 	owner.add_child(canhaoA)

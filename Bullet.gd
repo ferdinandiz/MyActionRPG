@@ -1,5 +1,5 @@
 extends Area2D
-var velocidade = 800
+var velocidade = 2000
 
 func _ready():
 	$CollisionShape2D.scale = Vector2(0.5,0.5)
