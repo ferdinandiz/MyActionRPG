@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Barril.gd" type="Script" id=1]
 [ext_resource path="res://barrel.png" type="Texture" id=2]
@@ -26,6 +26,10 @@ radius = 16.0
 
 [sub_resource type="CircleShape2D" id=9]
 
+[sub_resource type="OccluderPolygon2D" id=10]
+resource_local_to_scene = true
+polygon = PoolVector2Array( 0, 0, 1, 0, 1, 1, 1, 0 )
+
 [node name="Barril" type="KinematicBody2D"]
 position = Vector2( 81, 63 )
 script = ExtResource( 1 )
@@ -50,5 +54,9 @@ shape = SubResource( 8 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 328, 93 )
 shape = SubResource( 9 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2( 326, 95 )
+occluder = SubResource( 10 )
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
